@@ -1,0 +1,28 @@
+@logoColor: #c03712;
+@fgColor: #414141;
+@borderColor: #efefef;
+
+body{
+	color: @fgColor;
+	text-align: center;
+	.logo{
+		width: 600px;
+		height: 600px;
+	}
+	a{
+		color: @logoColor;
+		&:hover{
+			color: lighten(@logoColor,10%);
+		}
+	}
+	footer{
+		border-top: 1px solid @borderColor;
+		padding: 20px;
+		a{
+			color: @fgColor;
+			&:hover{
+				olor: lighten(@fgColor,20%);
+			}
+		}
+	}
+}
