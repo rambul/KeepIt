@@ -4,7 +4,9 @@
 
 body{
 	color: @fgColor;
-	text-align: center;
+	text-align: left;
+	padding-top: 100px;
+
 	.logo{
 		width: 600px;
 		height: 600px;
@@ -15,9 +17,32 @@ body{
 			color: lighten(@logoColor,10%);
 		}
 	}
+	h1{
+		font-size: 4em;
+	}
+
+
+	header{
+		height: auto;
+		width: 100%;
+		.logo{
+			float: left;
+			height: 60px;
+			margin: 10px 40px;
+			width: 160px;
+		}
+	}
+
+	section{
+		&#album-selection{
+			text-align: left;
+		}
+	}
+
 	footer{
 		border-top: 1px solid @borderColor;
 		padding: 20px;
+		text-align: center;
 		a{
 			color: @fgColor;
 			&:hover{
