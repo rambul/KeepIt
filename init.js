@@ -6,7 +6,7 @@
 			albums = d;
 			for(i=0;i<albums.length;i++){
 
-				var $theAlbum = $('<a href="#" class="list-group-item glyphicon glyphicon-chevron-right"><h4 class="list-group-item-heading">' + albums[i].name + '</h4><div class="list-group-item-text"></div></a>');
+				var $theAlbum = $('<a href="#" class="list-group-item glyphicon glyphicon-chevron-right"><h3 class="list-group-item-heading">' + albums[i].name + '</h3><div class="list-group-item-text"></div></a>');
 				$("#album-selection").find(".list-group").append($theAlbum);
 				getAlbum(albums[i].url,$theAlbum);
 			}
@@ -46,6 +46,8 @@
 
 		$("body").on("click",".photos li",function(){
 	    	$(this).toggleClass("chosen");
+	    	$("#selected-num h2").text($(".photos li.chosen").length);
+	    	$("#selected-num h2").anim("bounceIn");
 	    });
 
 	    $("body").on("click",".photos,.view-full",function(e){
@@ -53,3 +55,9 @@
 	    });
 
 	});
+
+$.fn.anim = function(x) {
+	this.removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+  		$(this).removeClass();
+	});
+};

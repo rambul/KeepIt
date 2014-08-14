@@ -3,6 +3,7 @@
 @logoColor: #c03712;
 @fgColor: #414141;
 @borderColor: #efefef;
+@fgPink: #D85343;
 
 body{
 	color: @fgColor;
@@ -23,6 +24,17 @@ body{
 		font-size: 4em;
 	}
 
+	#selected-num{
+		h2{
+ 			color: #d85343;
+			font-size: 72px;
+			display: inline-block;
+		}
+		span{
+			display: inline-block;
+		}
+	}
+
 	.photos{
 		margin-top: 20px;
 		li{
@@ -35,13 +47,13 @@ body{
 			position: relative;
 			width: 190px;
 			&.chosen{
-				border: 3px solid #D85343;
+				border: 3px solid @fgPink;
 				.choice-indicator{
 					display: block;
 				}
 			}
 			.choice-indicator{
-				background: #D85343;
+				background: @fgPink;
 				color: #fff;
 				display: none;
 				height: 34px;
@@ -134,7 +146,7 @@ body{
 		a{
 			color: @fgColor;
 			&:hover{
-				olor: lighten(@fgColor,20%);
+				color: lighten(@fgColor,20%);
 			}
 		}
 	}
