@@ -1,3 +1,5 @@
+@import "lesshat.less";
+
 @logoColor: #c03712;
 @fgColor: #414141;
 @borderColor: #efefef;
@@ -21,6 +23,73 @@ body{
 		font-size: 4em;
 	}
 
+	.photos{
+		margin-top: 20px;
+		li{
+			border: 3px solid transparent;
+			display: inline-block;
+			height: 200px;
+			list-style: none;
+			margin: 5px;
+			overflow: hidden;
+			position: relative;
+			width: 190px;
+			&.chosen{
+				border: 3px solid #D85343;
+				.choice-indicator{
+					display: block;
+				}
+			}
+			.choice-indicator{
+				background: #D85343;
+				color: #fff;
+				display: none;
+				height: 34px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 34px;
+				z-index: 999;
+				font-size: 24px;
+				text-align: center;
+				line-height: 34px;
+			}
+			img{
+				max-height: 300px;
+				max-width: 400px;
+				position: absolute;
+				top: 0;
+			}
+			.view-full{
+				background: fade(black,50%);
+				border-top: 1px solid fade(white,40%);
+				bottom: 0;
+				height: 30px;
+				left: 0;
+				opacity: 0;
+				position: absolute;
+				right: 0;
+				text-align: center;
+				&:hover{
+					background: fade(black,60%);
+				}
+			}
+			a.view-full-link{
+				color: #fff;
+				display: block;
+				font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+				line-height: 27px;
+				text-decoration: none;
+			}
+			&:hover{
+				background: #fff;
+				.view-full{
+					opacity: 1;
+				}
+			}
+		}
+	}
+
 
 	header{
 		height: auto;
@@ -33,6 +102,22 @@ body{
 		}
 		.fb-btn{
 			margin-top:10px;
+		}
+	}
+
+	.list-group-item{
+		padding: 30px 15px;
+		.albumItems{
+			display: none;
+		}
+		&:before{
+			.transition(all 0.2s ease-in-out);
+			float: right;
+		}
+		&.open{
+			&:before{
+				.rotate(90deg);
+			}
 		}
 	}
 
