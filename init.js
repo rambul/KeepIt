@@ -44,7 +44,8 @@
 	    	$(this).toggleClass("open").find(".albumItems").toggle("fast");
 	    });
 
-		$("body").on("click",".photos li",function(){
+		$("body").on("click",".photos li",function(e){
+			e.preventDefault();
 	    	$(this).toggleClass("chosen");
 	    	$("#selected-num h2").text($(".photos li.chosen").length);
 	    	$("#selected-num h2").anim("bounceIn");
