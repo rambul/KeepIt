@@ -41,7 +41,9 @@ $(document).ready(function(){
 	}
 
 	$("body").on("click",".list-group-item",function(){
-    	$(this).toggleClass("open").find(".albumItems").toggle("fast");
+    	$(this).toggleClass("open").find(".albumItems").toggle("fast",function(){
+	    	$(document.body).trigger("sticky_kit:recalc");
+    	});
     });
 
 	$("body").on("click",".photos li",function(e){
@@ -56,7 +58,7 @@ $(document).ready(function(){
     });
 
     $("#albums-title").stick_in_parent({
-    	parent: ".page-header", sticky_class: "stick-body", offset_top: 70
+    	parent: ".body-container", sticky_class: "stick-body", offset_top: 70
     })
     .on("sticky_kit:stick", function(e) {
 		$(".body-container").addClass("has-sticky");

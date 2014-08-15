@@ -3,7 +3,8 @@
 	<title>KeepIt - Hard-copy your best facebook moments!</title>
   <link rel="stylesheet" type="text/css" href="css/keepit.css">
   <link rel="stylesheet" type="text/css" href="css/animate.css">
-	<script src="lib/jquery.min.js"></script>
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/jquery.sticky-kit.min.js"></script>
 
 	<!-- start bootstrap -->
 
@@ -17,7 +18,7 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-  <script src="init.js"></script>
+  <script src="main.js"></script>
 </head>
 <body>
 
@@ -167,17 +168,23 @@
   	</div>
 </header>
 
-<div class="container">
+<div class="container body-container">
   <div class="page-header" id="banner">
     <div class="row">
-      <div class="col-lg-10 col-md-7 col-sm-6">
-          <h1>Your Albums</h1>
-          <p class="lead">Choose the ones you want to print</p>
-      </div>
-      <div class="col-lg-2">
-        <div id="selected-num">
-          <h2><span>0</span></h2>
-          <span>Selected <br/>Photos</span>
+      <div id="albums-title">
+        <div class="col-lg-7 col-md-7 col-sm-6">
+            <h1>Your Albums</h1>
+            <p class="lead">Choose the ones you want to print</p>
+        </div>
+        <div class="col-lg-2">
+          <div id="selected-num">
+            <h2><span>0</span></h2>
+            <span>Selected <br/>Photos <br/><strong>Out of 60</strong></span>
+          </div>
+        </div>
+        <div class="col-lg-3" id="album-selection-buttons">
+          <a href="#" class="btn btn-default btn-lg" id="btn-cancel">Cancel</a>
+          <a href="#" class="btn btn-primary btn-lg" id="btn-prepare">Prepare Album</a>
         </div>
       </div>
       <div class="col-lg-12" id="album-selection">
@@ -186,12 +193,6 @@
             <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">
               &lt; &gt;
             </div>
-      </div>
-      <div class="col-lg-9">
-      </div>
-      <div class="col-lg-3" id="album-selection-buttons">
-        <a href="#" class="btn btn-default btn-lg" id="btn-cancel">Cancel</a>
-        <a href="#" class="btn btn-primary btn-lg" id="btn-prepare">Prepare Album</a>
       </div>
     </div>
   </div>

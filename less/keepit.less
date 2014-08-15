@@ -10,6 +10,10 @@ body{
 	text-align: left;
 	padding-top: 100px;
 
+	.navbar-default{
+		z-index: 99999;
+	}
+
 	.logo{
 		width: 600px;
 		height: 600px;
@@ -25,13 +29,17 @@ body{
 	}
 
 	#selected-num{
+		padding-top: 10px;
 		h2{
- 			color: #d85343;
+ 			color: @fgPink;
 			font-size: 72px;
 			display: inline-block;
 		}
 		span{
 			display: inline-block;
+		}
+		strong{
+			color: @fgPink;
 		}
 	}
 
@@ -117,21 +125,25 @@ body{
 		}
 	}
 
-	.list-group-item{
-		padding: 30px 15px;
-		.albumItems{
-			display: none;
-		}
-		&:before{
-			.transition(all 0.2s ease-in-out);
-			float: right;
-		}
-		&.open{
+	.list-group{
+		margin-bottom: 100px;
+		.list-group-item{
+			padding: 30px 15px;
+			.albumItems{
+				display: none;
+			}
 			&:before{
-				.rotate(90deg);
+				.transition(all 0.2s ease-in-out);
+				float: right;
+			}
+			&.open{
+				&:before{
+					.rotate(90deg);
+				}
 			}
 		}
 	}
+
 
 	.btn-primary:hover{
 		background-color: #cb210e;
@@ -145,6 +157,7 @@ body{
 		text-align: left;
 	}
 	#album-selection-buttons{
+		padding-top: 45px;
 		text-align: right;
 	}
 
@@ -157,6 +170,20 @@ body{
 			color: @fgColor;
 			&:hover{
 				color: lighten(@fgColor,20%);
+			}
+		}
+	}
+
+	.stick-body{
+		background: #FCFCFC;
+		z-index: 9999;
+	}
+
+	.container{
+		// height: 100%;
+		&.body-container{
+			&.has-sticky{
+				padding-top: 130px;
 			}
 		}
 	}
