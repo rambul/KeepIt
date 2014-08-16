@@ -6,5 +6,9 @@
       {
          "name": "מבלים עם חברים",
          "url": "http://goffan.co.il/keepit/test-json/מבלים-עם-חברים.json"
+      },
+      {
+         "name": "Lital's Mobile Uploads",
+         "url": "http://goffan.co.il/keepit/test-json/lital-mobile-uploads.json"
       }
    ]

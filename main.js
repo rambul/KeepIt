@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 	$("body").on("click",".list-group-item",function(){
     	$(this).toggleClass("open").find(".albumItems").toggle("fast",function(){
-	    	$(document.body).trigger("sticky_kit:recalc");
+		    	$(document.body).trigger("sticky_kit:recalc");
     	});
     });
 
