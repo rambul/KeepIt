@@ -18,7 +18,29 @@ app.config(['$routeProvider', '$locationProvider',
     }
 ]);
 
-app.controller('choose', function($scope) {
+app.service('sharedProperties', function() {
+    var selectedAlbums = {};
+
+    return {
+        getString: function() {
+            return stringValue;
+        },
+        setString: function(value) {
+            stringValue = value;
+        },
+        setObject: function(value) {
+            selectedAlbums = value;
+        },
+        getObject: function() {
+            return selectedAlbums;
+        }
+    }
+});
+
+app.controller('choose', function($scope,sharedProperties) {
+
+    $("body").off(); // REMOVE THIS!!
+
     var albums;
 
     $.getJSON("test-json/albums.json",function(data) {}).done(function(d) {
@@ -70,6 +92,8 @@ app.controller('choose', function($scope) {
         $(this).toggleClass("chosen");
         $("#selected-num h2").text($(".photos li.chosen").length);
         $("#selected-num h2").anim("fadeInDown");
+
+        sharedProperties.setObject($(".photos li.chosen"));
     });
 
     $("body").on("click",".photos,.view-full",function(e){
@@ -85,4 +109,10 @@ app.controller('choose', function($scope) {
     .on("sticky_kit:unstick", function(e) {
         $(".body-container").removeClass("has-sticky");
     });
+});
+
+
+
+app.controller('prepare', function($scope,sharedProperties) {
+    $("#album-preview").append(sharedProperties.getObject());
 });
