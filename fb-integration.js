@@ -8,7 +8,11 @@ window.fbAsyncInit = function() {
     })
 
     FB.Event.subscribe('auth.login', function(resp) {
-        window.location = "choose";
+        window.location = "/keepit/choose";
+    });
+
+    FB.Event.subscribe("auth.logout", function() {
+        window.location = '/keepit/'
     });
 
     FB.Event.subscribe('auth.login', function(response) {
@@ -38,7 +42,7 @@ window.fbAsyncInit = function() {
 
         if (response.status=='connected') {
             FB.api('/me',function(response){
-                // what happens when already connected
+                $("#start").find(".btn-facebook").fadeOut("fast").after('<p>You\'re already logged in. <a href="choose/">Proceed</a></p>');
             });
         }
     });
@@ -55,7 +59,7 @@ function fb_login(){
 
             FB.api('/me', function(response) {
                 user_email = response.email; //get user email
-          // you can store this data into your database             
+          // you can store this data into your database
             });
 
         } else {
