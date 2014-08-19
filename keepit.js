@@ -5,6 +5,10 @@ app.config(['$routeProvider', '$locationProvider',
         $locationProvider.html5Mode(true);
         $routeProvider.
         when('/keepit/', {
+            templateUrl: '/keepit/templates/start.html',
+            controller: 'start'
+        }).
+        when('/keepit/choose', {
             templateUrl: '/keepit/templates/choose.html',
             controller: 'choose'
         }).
@@ -13,7 +17,7 @@ app.config(['$routeProvider', '$locationProvider',
             controller: 'prepare'
         }).
         otherwise({
-            redirectTo: '/keepit/'
+            redirectTo: '/keepit/error'
         });
     }
 ]);
