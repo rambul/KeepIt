@@ -29,7 +29,7 @@ app.controller('choose', function($scope,$http,sharedProperties) {
             var albumName  = album.name;
             var photos = album.photos;
 
-            numberOfPhotos = photos.length;
+            if(photos) numberOfPhotos = photos.length;
 
             var albumHtml = "<ul class=\"photos\">";
 

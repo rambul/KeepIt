@@ -8,11 +8,11 @@ window.fbAsyncInit = function() {
     })
 
     FB.Event.subscribe('auth.login', function(resp) {
-        window.location = "/keepit/choose";
+        window.location = "/choose";
     });
 
     FB.Event.subscribe("auth.logout", function() {
-        window.location = '/keepit/'
+        window.location = '/'
     });
 
     FB.Event.subscribe('auth.login', function(response) {
