@@ -42,7 +42,10 @@ window.fbAsyncInit = function() {
 
         if (response.status=='connected') {
             FB.api('/me',function(response){
-                $("#start").find(".btn-facebook").fadeOut("fast").after('<p>You\'re already logged in. <a href="choose/">Proceed</a></p>');
+                $("#start").find(".btn-facebook").fadeOut("fast").after('<p>You\'re already logged in. <a id="proceed" href="choose/">Proceed</a></p>');
+                if(window.location.pathname == "/"){
+                    window.location = "/choose";
+                }
             });
         }
     });
@@ -58,9 +61,22 @@ function fb_login(){
             user_id = response.authResponse.userID; //get FB UID
 
             FB.api('/me', function(response) {
-                user_email = response.email; //get user email
-          // you can store this data into your database
+                user_email = response.email; 
+                $(".fb-btn").after('<div class="user_email">'+ user_email +'</div>');
             });
+
+            FB.api(
+            "/me/photos",
+            "POST",
+            {
+                "source": "{image-data}"
+            },
+            function (response) {
+                  if (response && !response.error) {
+                    console.log(response);
+                  }
+                }
+            );
 
         } else {
             //user hit cancel button
