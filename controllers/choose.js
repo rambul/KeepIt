@@ -88,6 +88,20 @@ app.controller('choose', function($scope,$http,sharedProperties) {
         e.stopPropagation();
     });
 
+    $("body").on("click","#btn-random",function(e){
+        e.preventDefault();
+        var arr = []
+        while(arr.length < 60){
+          var randomnumber=Math.ceil(Math.random()*100)
+          var found=false;
+          for(var i=0;i<arr.length;i++){
+            if(arr[i]==randomnumber){found=true;break}
+          }
+          if(!found)arr[arr.length]=randomnumber;
+          $(".photos li").eq(randomnumber).trigger("click");
+        }
+    });
+
     $("#albums-title").stick_in_parent({
         parent: ".body-container", sticky_class: "stick-body", offset_top: 70
     })
