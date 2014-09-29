@@ -1,3 +1,9 @@
+AuthName "Keepit - Developers" 
+AuthType Basic
+AuthUserFile /.htpasswd
+AuthGroupFile /dev/null
+require valid-user
+
 RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]

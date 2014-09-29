@@ -15,30 +15,7 @@ window.fbAsyncInit = function() {
         window.location = '/'
     });
 
-    FB.Event.subscribe('auth.login', function(response) {
-        // {
-        //   status: "",         /* Current status of the session */
-        //   authResponse: {          /* Information about the current session */
-        //      userID: ""          /* String representing the current user's ID */
-        //      signedRequest: "",  /* String with the current signedRequest */
-        //      expiresIn: "",      /* UNIX time when the session expires */
-        //      accessToken: "",    /* Access token of the user */
-        //   }
-        // }
-        // alert('event status: ' + response.status);
-    });
-
     FB.getLoginStatus(function(response) {
-        //  {
-        //     status: 'connected',
-        //     authResponse: {
-        //        accessToken: '...',
-        //        expiresIn:'...',
-        //        signedRequest:'...',
-        //        userID:'...'
-        //     }
-        //  }
-        //alert('getLoginStatus: ' + response.status);
 
         if (response.status=='connected') {
             FB.api('/me',function(response){
@@ -53,10 +30,8 @@ window.fbAsyncInit = function() {
 };
 function fb_login(){
     FB.login(function(response) {
-
         if (response.authResponse) {
             console.log('Welcome!  Fetching your information.... ');
-            //console.log(response); // dump complete info
             access_token = response.authResponse.accessToken; //get access token
             user_id = response.authResponse.userID; //get FB UID
 
@@ -79,12 +54,11 @@ function fb_login(){
             );
 
         } else {
-            //user hit cancel button
             console.log('User cancelled login or did not fully authorize.');
 
         }
     }, {
-        scope: 'publish_stream,email'
+        scope: 'publish_stream,email,user_photos'
     });
 }
 (function(d) {
