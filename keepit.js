@@ -16,6 +16,10 @@ app.config(['$routeProvider', '$locationProvider',
             templateUrl: '/templates/prepare.html',
             controller: 'prepare'
         }).
+        when('/flip', {
+            templateUrl: '/templates/flipbook.html',
+            controller: 'flipbook'
+        }).
         otherwise({
             redirectTo: '/error'
         });

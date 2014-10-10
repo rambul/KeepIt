@@ -16,9 +16,13 @@ app.controller('choose', function($scope,$http,sharedProperties) {
     //         }
     //     });
 
-    FB.Event.subscribe('auth.statusChange', function(resp) {
-        getAlbums();
-    });
+    setTimeout("doFb()",500);
+
+    doFb = function(){
+        FB.Event.subscribe('auth.statusChange', function(resp) {
+            getAlbums();
+        });
+    }
 
     getAlbums = function(){
         FB.api("/me/albums",function (response) {
