@@ -16,9 +16,10 @@ app.controller('choose', function($scope,$http,sharedProperties) {
     //         }
     //     });
 
-    setTimeout("doFb()",500);
+    var fbCheck = setInterval("console.log(FB); if(FB) doFb();",100);
 
     doFb = function(){
+        window.clearInterval(fbCheck);
         FB.Event.subscribe('auth.statusChange', function(resp) {
             getAlbums();
         });
