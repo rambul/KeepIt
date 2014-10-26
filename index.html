@@ -1,17 +1,18 @@
 <!doctype html>
-<html ng-app="keepIt">
+<html ng-app="keepIt" class="no-js demo-4">
 <head>
 	<title>KeepIt - Hard-copy your best facebook moments!</title>
   <link rel="stylesheet" type="text/css" href="css/keepit.css">
   <link rel="stylesheet" type="text/css" href="css/animate.css">
-  <link rel="stylesheet" type="text/css" href="css/magazine.css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-  <script src="lib/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1-rc2/jquery.js"></script>
+  <script src="lib/modernizr.custom.js"></script>
   <script src="lib/jquery.sticky-kit.min.js"></script>
-  <script src="lib/turn.js"></script>
+  <script src="lib/jquerypp.custom.js"></script>
+  <script src="lib/jquery.bookblock.min.js"></script>
 
 	<!-- start bootstrap -->
 
@@ -21,14 +22,19 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/simplex.css">
-  <link rel="stylesheet" href="css/bookblock.css">
   <link rel="stylesheet" href="css/pace.css" />
+  <link rel="stylesheet" type="text/css" href="css/default.css" />
+  <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
+  <link rel="stylesheet" type="text/css" href="css/flip.css" />
+
+  <script src="lib/modernizr.custom.js"></script>
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
   <script src="main.js"></script>
   <script src="keepit.js"></script>
+  <script src="router.js"></script>
 
   <script src="controllers/choose.js"></script>
   <script src="controllers/prepare.js"></script>
@@ -47,33 +53,8 @@
 	<img src="logo-small.png" class="logo">
   	<div class="container">
         <div class="navbar-header">
-          <!-- <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button> -->
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
-          <!-- <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="../default/">Default</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="../help/">Help</a>
-            </li>
-            <li>
-              <a href="http://news.bootswatch.com">Blog</a>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-              </ul>
-            </li>
-          </ul> -->
 
           <ul class="nav navbar-nav navbar-right">
             <div class="fb-btn">
