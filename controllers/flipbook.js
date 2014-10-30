@@ -3,6 +3,21 @@ app.controller('flipbook', function($scope,sharedProperties) {
 	var chosenPhotos = sharedProperties.getObject();
 	var flipbook = $("#flipbook");
 
+	var index = 0;
+
+	chosenPhotos.each(function(){
+		if(index == 0){
+			flipbook.find(".bb-item:first").find(".bb-custom-side").append("<img src=\"" + $(this).find("img").attr("src") + "\">")
+		}else{
+			if(index%2 == 0){
+				flipbook.find(".bb-bookblock").append("<div class=\"bb-item\"><div class=\"bb-custom-side\"><img src=\"" + $(this).find("img").attr("src") + "\"></div><div class=\"bb-custom-side\"></div></div>");
+			}else{
+				flipbook.find(".bb-custom-side:last").append("<img src=\"" + $(this).find("img").attr("src") + "\">");
+			}
+		}
+		index++;
+	});
+
 
 	var Page = (function() {
 
